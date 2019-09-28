@@ -3,7 +3,7 @@
   <% unless @jobs.nil? %>
     <div class="row jobs_index">
       <% @jobs.each do |job| %>
-        <% unless job.hiring == "archiv" %>
+        <% unless job.hiring == "archiv" || Connection.where(job_id: job.id).where(user_id: current_user) != [] %>
           <div class="col-sm-4">
             <%= link_to(job_path(job.id)) do %>
               <div class="jobcard">

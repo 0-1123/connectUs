@@ -20,6 +20,12 @@
       <%= link_to "Meine Anzeigen |", anzeigen_path, class: "reg_link" %>
       <%= link_to "Alle Anzeigen", jobs_index_path, class: "reg_link" %>
     </div>
+  <% elsif current_user.role != "company" %>
+    <%= link_to "Anfragen", new_connection_path(@job.id), class: "btn btn-info",
+                    data: { confirm: "Möchten Sie \'#{@job.name}\' anfragen?
+(Den Status der Anfrage finden Sie unter \'Anfragen\')" } %>
+    <br>
+    <%= link_to "zurück", jobs_index_path, class: "reg_link" %>
   <% else %>
     <%= link_to "zurück", jobs_index_path, class: "btn btn-outline-dark mt-3" %>
   <% end %>

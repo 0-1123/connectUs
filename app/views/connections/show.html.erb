@@ -1,0 +1,23 @@
+<div class="container mt-5">
+  <h1 class="mb-5">Deine Anfragen</h1>
+  <% unless @connections.nil? %>
+    <div class="row jobs_index">
+      <% @connections.each do |connection| %>
+        <% unless Job.find(connection.job_id).hiring == "archiv" %>
+          <div class="col-sm-4">
+            <div class="connectioncard">
+              <h5><%= Job.find(connection.job_id).name %></h5>
+              <p>
+                <%= User.find(Job.find(connection.job_id).user_id).name %> <br>
+                <%= Job.find(connection.job_id).address %> <br>
+                Status: <%= connection.status %>
+              </p>
+            </div>
+          </div>
+        <% end %>
+      <% end %>
+    </div>
+  <% end %>
+  <br>
+  <p>Falls du manche Anfragen hier nicht mehr sehen kannst, hat das Unternehmen diese wahrscheinlich archiviert.</p>
+</div>

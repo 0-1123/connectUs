@@ -13,4 +13,6 @@ Rails.application.routes.draw do
   get "archiv",      to: "jobs#archiv", as: :archiv
   get 'anzeigen', to: 'jobs#anzeigen_show', as: :anzeigen
   get 'information', to: 'jobs#information', as: :information
+  get "connections/:id/new", to: "connections#new", as: :new_connection
+  get "anfragen", to: "connections#show", as: :connections
 end
