@@ -12,4 +12,5 @@ Rails.application.routes.draw do
   get "jobs/:id/active",      to: "jobs#active_job", as: :active_job
   get "archiv",      to: "jobs#archiv", as: :archiv
   get 'anzeigen', to: 'jobs#anzeigen_show', as: :anzeigen
+  get 'information', to: 'jobs#information', as: :information
 end

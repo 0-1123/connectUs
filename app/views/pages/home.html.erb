@@ -5,20 +5,20 @@
   <div class="row">
     <div class="width-fit p-3">
       <%= link_to "Jetzt schnuppern", jobs_index_path, class: "btn btn-info btn-lg mr-4 col-sm-4 mt-sm-5" %>
-      <button class="btn btn-dark btn-lg col-sm-4 mt-sm-5">Für Unternehmen</button>
+      <%= link_to "Für Unternehmen", information_path, class: "btn btn-dark btn-lg col-sm-4 mt-sm-5" %>
     </div>
   </div>
 </div>
 
 <div class="row">
-  <div class="width-fit">
+  <div class="width-fit p-3">
     <div class="white-card-text mt-5 col-xs-12 col-sm-5">
       <h4 class="mb-3">Zusammen arbeiten!</h4>
       <p>Wir möchten Menschen in der Region Mayen-Koblenz die Möglichkeit geben  Beruf und Betrieb kennen zu lernen. Sei es um sich zu orientieren oder mit dem Wunsch direkt einzusteigen. Über dieses Portal können sich Arbeitgeber und -nehmer verbinden um einen oder mehrere Schnuppertage im Betrieb auszumachen. So sieht man, ob das Arbeitsumfeld passt.</p>
     </div>
-    <div class="white-card-text mt-5 col-xs-12 col-sm-5">
-      <h4 class="mb-3">Enactus</h4>
-      <p>Enactus Deutschland...</p>
+    <div class="white-card-text mt-5 col-xs-12 col-sm-5 text-center">
+      <%= cl_image_tag("tmp_1569703008826_e2bmip.png", class: "col-12") %>
+      <a class="btn btn-info ml-4 mt-3" href="https://www.whu.edu/entrepreneurship/whu-gruendungsinitiativen/enactus-whu-vallendar-ev/">Enactus WHU Vallendar e.V.</a>
     </div>
   </div>
 </div>
