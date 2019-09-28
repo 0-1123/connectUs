@@ -1,0 +1,19 @@
+<div class="container mt-5">
+  <h3><%= @company.name %></h3>
+  <p><%= @company.information %></p>
+  <% unless Job.where(user_id: @company.id).nil? %>
+    <div class="row jobs_index">
+      <% Job.where(user_id: @company.id).each do |job| %>
+        <div class="col-sm-4">
+          <%= link_to(job_path(job.id)) do %>
+            <div class="jobcard">
+              <h5><%= job.name %></h5>
+              <p><%= User.find(job.user_id).name %> <br>
+              <%= job.address %></p>
+            </div>
+          <% end %>
+        </div>
+      <% end %>
+    </div>
+  <% end %>
+</div>

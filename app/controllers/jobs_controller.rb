@@ -17,6 +17,10 @@ class JobsController < ApplicationController
     @job = Job.find(params[:id])
   end
 
+  def company_show
+    @company = User.find(params[:id])
+  end
+
   def new
   end
 

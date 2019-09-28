@@ -3,5 +3,6 @@ Rails.application.routes.draw do
   root to: 'pages#home'
   get 'berufe', to: 'jobs#index', as: :jobs_index
   get 'beruf/:id', to: 'jobs#show', as: :job
+  get 'firma/:id', to: 'jobs#company_show', as: :company
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 end
