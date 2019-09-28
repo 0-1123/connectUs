@@ -8,10 +8,16 @@
   </button>
 
   <div class="collapse navbar-collapse" id="navbarSupportedContent">
-    <form class="form-inline my-2 my-lg-0 mr-4">
-      <input class="form-control mr-sm-2" type="search" placeholder="Addresse, Beruf..." aria-label="Search">
-      <button class="btn btn-outline-info my-2 my-sm-0" type="submit">Suche</button>
-    </form>
+    <div class="form-inline my-2 my-lg-0 mr-3">
+      <%= form_tag jobs_index_path, method: :get do %>
+        <%= text_field_tag :query,
+          params[:query],
+          class: "form-control mr-sm-2",
+          placeholder: "Addresse, Beruf..."
+        %>
+        <%= submit_tag "Suchen", class: "btn btn-outline-info my-2 my-sm-0" %>
+      <% end %>
+    </div>
     <ul class="navbar-nav mr-auto">
       <% if user_signed_in? %>
         <li class="nav-item dropdown">

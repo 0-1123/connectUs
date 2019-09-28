@@ -1,0 +1,10 @@
+<div class="container mt-5">
+  <h3><%= @job.name %></h3>
+  <div class="row">
+    <p class="ml-3 mr-2">Firma: <%= User.find(@job.user_id).name %></p>
+    <%= link_to "mehr", "#", class: "reg_link" %>
+  </div>
+  <p>Adresse: <%= @job.address %></p>
+  <p>Beschreibung: <%= @job.description %></p>
+  <%= link_to "zurück", jobs_index_path, class: "btn btn-outline-dark" %>
+</div>

@@ -1,0 +1,22 @@
+.jobcard {
+  background: white;
+  padding: 20px;
+  margin:0px;
+  margin-bottom: 20px;
+  border-radius: 4px;
+  box-shadow: 0 0 6px rgba(0,0,0,.1);
+}
+
+.jobcard:hover {
+  background: rgb(243,243,243)
+}
+
+.jobs_index a {
+  color: rgb(40,40,40);
+  text-decoration: none;
+}
+
+.jobs_index a:hover {
+  color: rgb(20,20,20);
+  text-decoration: none;
+}
