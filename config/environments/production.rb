@@ -1,12 +1,17 @@
 Rails.application.configure do
   # Settings specified here will take precedence over those in config/application.rb.
   config.action_mailer.default_url_options = {:host => 'connectus-enacuts.herokuapp.com'}
-  config.action_mailer.delivery_method = :smtp
-  config.action_mailer.smtp_settings = {
-  :address => "127.0.0.1",
-  :port    => 25,
-  :domain  => 'alisia.michel@vallendar.enactus.de'
-}
+  ActionMailer::Base.delivery_method = :smtp
+  ActionMailer::Base.smtp_settings = {
+    :address              =>  'smtp.sendgrid.net',
+    :port                 =>  '465',
+    :authentication       =>  :plain,
+    :user_name            =>  'apikey',
+    :password             =>  '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',
+    :domain               =>  'connectus-enacuts.herokuapp.com',
+    :enable_starttls_auto  =>  true
+  }
+
   # Code is not reloaded between requests.
   config.cache_classes = true
 
