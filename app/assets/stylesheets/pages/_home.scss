@@ -1,1 +1,14 @@
 // Specific CSS for your home-page
+.background {
+  width: 100vw;
+  height: 100vh;
+  object-fit: cover;
+  position: fixed;
+  top: 0;
+  z-index: -1;
+}
+
+.width-fit {
+  width: 80vw;
+  margin: 0 auto;
+}

@@ -1,0 +1,25 @@
+.white-card {
+  width: 80vw;
+  height: 60vh;
+  background: white;
+  opacity: 0.92;
+  text-align: center;
+  border-radius: 4px;
+  box-shadow: 0 0 6px rgba(0,0,0,.1)
+}
+
+.white-card h1 {
+  padding-top: 16vh;
+  font-size: 70px;
+}
+
+.white-card-text {
+  width: 38vw;
+  padding: 40px;
+  padding-left: 40px;
+  padding-right: 40px;
+  background: white;
+  opacity: 0.92;
+  border-radius: 4px;
+  box-shadow: 0 0 6px rgba(0,0,0,.1)
+}
