@@ -3,8 +3,10 @@
   <% unless @connections.nil? %>
     <div class="row jobs_index">
       <% @connections.each do |connection| %>
-        <% unless Job.find(connection.job_id).hiring == "archiv" %>
+        <% unless Job.find(connection.job_id).hiring == "archiv" || connection.status == "Remove" %>
           <div class="col-sm-4">
+            <h1><%= link_to "x" , remove_connection_path(connection.id), class: "remove",
+                  data: { confirm: "Möchten Sie die \'#{Job.find(connection.job_id).name}\'-Anfrage löschen?" } %></h1>
             <div class="connectioncard">
               <h5><%= Job.find(connection.job_id).name %></h5>
               <p>

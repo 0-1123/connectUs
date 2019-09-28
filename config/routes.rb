@@ -17,4 +17,5 @@ Rails.application.routes.draw do
   get "anfragen", to: "connections#show", as: :connections
   get "antworten", to: "connections#edit", as: :edit_connection
   patch "antworten/:id", to: "connections#update", as: :antworten
+  get "connections/:id/remove", to: "connections#remove", as: :remove_connection
 end

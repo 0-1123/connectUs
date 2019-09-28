@@ -3,7 +3,7 @@
   <% unless @connections.nil? %>
     <div class="row jobs_index">
       <% @connections.each do |connection| %>
-        <% unless Job.find(connection.job_id).hiring == "archiv" %>
+        <% unless Job.find(connection.job_id).hiring == "archiv" || connection.status == "Remove" %>
           <div class="col-sm-4">
             <div class="connectioncard">
               <h5><%= Job.find(connection.job_id).name %></h5>

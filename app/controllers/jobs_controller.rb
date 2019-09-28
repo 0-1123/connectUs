@@ -64,6 +64,11 @@ class JobsController < ApplicationController
     @job = Job.find(params[:id])
     @job.hiring = "archiv"
     @job.save!
+    connections = Connection.where(job_id: @job.id)
+    connections.each do |connection|
+      connection.status = "Remove"
+      connection.save!
+    end
     redirect_to anzeigen_path
   end
 

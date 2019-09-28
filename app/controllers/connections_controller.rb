@@ -27,6 +27,19 @@ class ConnectionsController < ApplicationController
     redirect_to edit_connection_path
   end
 
+  def remove
+    @connection = Connection.find(params[:id])
+    @connection.status = "Remove"
+    @connection.save!
+    if current_user.role == "company"
+      redirect_to edit_connection_path
+    else
+      redirect_to connections_path
+    end
+  end
+
+  private
+
   def connection_params
     params.require(:connection).permit(:status)
   end
