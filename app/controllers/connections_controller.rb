@@ -13,8 +13,21 @@ class ConnectionsController < ApplicationController
   end
 
   def edit
+    jobs = Job.where(user_id: current_user.id)
+    connect = []
+    jobs.each do |job|
+      connect << Connection.where(job_id: job.id)
+    end
+    @connections = connect.flatten
   end
 
   def update
+    @connection = Connection.find(params[:id])
+    @connection.update(connection_params)
+    redirect_to edit_connection_path
+  end
+
+  def connection_params
+    params.require(:connection).permit(:status)
   end
 end

@@ -1,0 +1,36 @@
+<div class="container mt-5">
+  <h1 class="mb-5">Ihre Anfragen</h1>
+  <% unless @connections.nil? %>
+    <div class="row jobs_index">
+      <% @connections.each do |connection| %>
+        <% unless Job.find(connection.job_id).hiring == "archiv" %>
+          <div class="col-sm-4">
+            <div class="connectioncard">
+              <h5><%= Job.find(connection.job_id).name %></h5>
+              <p>
+                <%= Job.find(connection.job_id).address %> <br>
+                Kontakt: <%= User.find(connection.user_id).email %> <br>
+                <% if connection.status == "Offen" %>
+                  <form class="edit_connection" id="edit_connection_<%= connection.id %>" action="/antworten/<%= connection.id %>" accept-charset="UTF-8" method="post"><input name="utf8" type="hidden" value="✓"><input type="hidden" name="_method" value="patch"><input type="hidden" name="authenticity_token" value="OoKt51STfKpamqsgRbasd+oR+2JoSxDdzKT8xKg4GcB29qYOPmtNJ5Z1U7qbIvgq0+cqnPvU0FAKhzkA/kGRiw==">
+
+                    <div class="form-group">
+                      <label for="connection_status">Wir haben freie Stellen:</label>
+                      <select class="form-control" type="text" name="connection[status]" value="<%= connection.status %>" id="connection_status">
+                        <option>Wir kontaktieren Sie</option>
+                        <option>Bitte nehmen Sie Kontakt auf</option>
+                        <option>Leider können wir im Moment niemanden aufnehmen</option>
+                      </select>
+                    </div>
+
+                    <input type="submit" name="commit" value="Antworten" class="btn btn-info" data-disable-with="Update Connection">
+                  </form>
+                  <% else %>
+                    Status: <%= connection.status %>
+                  <% end %>
+              </p>
+            </div>
+          </div>
+        <% end %>
+      <% end %>
+    </div>
+  <% end %>

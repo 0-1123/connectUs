@@ -33,7 +33,7 @@
           <li class="nav-item dropdown">
             <%= image_tag "https://images.unsplash.com/photo-1544502062-f82887f03d1c?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1427&q=80", class: "avatar dropdown-toggle", id: "navbarDropdown", data: { toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false %>
             <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
-              <%= link_to "Anfragen", "#", class: "dropdown-item" %>
+              <%= link_to "Anfragen", edit_connection_path, class: "dropdown-item" %>
               <%= link_to "Neue Anzeige", jobs_new_path, class: "dropdown-item" %>
               <%= link_to "Anzeigen Verwalten", anzeigen_path, class: "dropdown-item" %>
               <%= link_to "Archiv", archiv_path, class: "dropdown-item" %>

@@ -15,4 +15,6 @@ Rails.application.routes.draw do
   get 'information', to: 'jobs#information', as: :information
   get "connections/:id/new", to: "connections#new", as: :new_connection
   get "anfragen", to: "connections#show", as: :connections
+  get "antworten", to: "connections#edit", as: :edit_connection
+  patch "antworten/:id", to: "connections#update", as: :antworten
 end

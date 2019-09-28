@@ -11,6 +11,9 @@
                 <%= User.find(Job.find(connection.job_id).user_id).name %> <br>
                 <%= Job.find(connection.job_id).address %> <br>
                 Status: <%= connection.status %>
+                <% if connection.status == "Bitte nehmen Sie Kontakt auf" %>
+                  Kontakt: <%= User.find(Job.find(connection.job_id).user_id).email %>
+                <% end %>
               </p>
             </div>
           </div>
