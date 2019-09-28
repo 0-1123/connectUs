@@ -1,17 +1,17 @@
 <div class="container mt-5">
-  <h3><%= @company.name %></h3>
-  <p><%= @company.information %></p>
-  <h4>Anzeigen:</h4>
-  <% unless Job.where(user_id: @company.id).nil? %>
+  <h1 class="mb-4">Archivierte Anzeigen</h1>
+  <% unless @jobs.nil? %>
     <div class="row jobs_index">
-      <% Job.where(user_id: @company.id).each do |job| %>
-        <% unless job.hiring == "archiv" %>
+      <% @jobs.each do |job| %>
+        <% if job.hiring == "archiv" %>
           <div class="col-sm-4">
             <%= link_to(job_path(job.id)) do %>
               <div class="jobcard">
                 <h5><%= job.name %></h5>
                 <p><%= User.find(job.user_id).name %> <br>
                 <%= job.address %></p>
+                <%= link_to "Reaktivieren", active_job_path(job.id), class: "btn btn-info",
+                data: { confirm: "Möchten Sie \'#{job.name}\' wieder anzeigen?" } %>
               </div>
             <% end %>
           </div>

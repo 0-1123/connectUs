@@ -8,7 +8,8 @@ Rails.application.routes.draw do
   post   "jobs",          to: "jobs#create"
   get    "jobs/:id/edit", to: "jobs#edit", as: :edit_job
   patch  "beruf/:id",      to: "jobs#update", as: :beruf
-  delete "jobs/:id",      to: "jobs#destroy"
-
+  get "jobs/:id/archiv",      to: "jobs#archiv_job", as: :archiv_job
+  get "jobs/:id/active",      to: "jobs#active_job", as: :active_job
+  get "archiv",      to: "jobs#archiv", as: :archiv
   get 'anzeigen', to: 'jobs#anzeigen_show', as: :anzeigen
 end

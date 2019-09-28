@@ -7,5 +7,20 @@
   </div>
   <p>Adresse: <%= @job.address %></p>
   <p>Beschreibung: <%= @job.description %></p>
-  <%= link_to "zurück", jobs_index_path, class: "btn btn-outline-dark" %>
+  <% if @job.user_id == current_user.id %>
+    <% if @job.hiring == "archiv" %>
+      <%= link_to "Reaktivieren", active_job_path(@job.id), class: "btn btn-info",
+                data: { confirm: "Möchten Sie \'#{@job.name}\' wieder anzeigen?" } %>
+    <% else %>
+      <%= link_to "Bearbeiten", edit_job_path(@job.id), class: "btn btn-info mr-4" %>
+      <%= link_to "Archivieren", archiv_job_path(@job.id), class: "btn btn-dark", style: "color: white;",
+                    data: { confirm: "Möchten Sie \'#{@job.name}\' archivieren?" } %>
+    <% end %>
+    <div class="mt-3">
+      <%= link_to "Meine Anzeigen |", anzeigen_path, class: "reg_link" %>
+      <%= link_to "Alle Anzeigen", jobs_index_path, class: "reg_link" %>
+    </div>
+  <% else %>
+    <%= link_to "zurück", jobs_index_path, class: "btn btn-outline-dark mt-3" %>
+  <% end %>
 </div>

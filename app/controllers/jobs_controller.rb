@@ -56,8 +56,22 @@ class JobsController < ApplicationController
     redirect_to job_path(@job)
   end
 
+  def archiv
+    @jobs = Job.all
+  end
 
-  def destroy
+  def archiv_job
+    @job = Job.find(params[:id])
+    @job.hiring = "archiv"
+    @job.save!
+    redirect_to anzeigen_path
+  end
+
+  def active_job
+    @job = Job.find(params[:id])
+    @job.hiring = "Keine Angabe"
+    @job.save!
+    redirect_to edit_job_path(@job.id)
   end
 
   private

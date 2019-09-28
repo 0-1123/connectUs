@@ -1,18 +1,23 @@
 <div class="container mt-5">
-  <h1 class="mb-5">Meine Anzeigen</h1>
+  <h1>Meine Anzeigen</h1>
+  <%= link_to "+ Neue Anzeige", jobs_new_path, class: "btn btn-info btn-lg mb-3" %>
   <% unless @jobs.nil? %>
     <div class="row jobs_index">
       <% @jobs.each do |job| %>
-      <div class="col-sm-4">
-        <%= link_to(job_path(job.id)) do %>
-          <div class="jobcard">
-            <h5><%= job.name %></h5>
-            <p><%= User.find(job.user_id).name %> <br>
-            <%= job.address %></p>
-            <%= link_to "bearbeiten", edit_job_path(job.id), class: "btn btn-info" %>
+        <% unless job.hiring == "archiv" %>
+          <div class="col-sm-4">
+            <%= link_to(job_path(job.id)) do %>
+              <div class="jobcard">
+                <h5><%= job.name %></h5>
+                <p><%= User.find(job.user_id).name %> <br>
+                <%= job.address %></p>
+                <%= link_to "Bearbeiten", edit_job_path(job.id), class: "btn btn-info" %>
+                <%= link_to "Archivieren", archiv_job_path(job.id), class: "btn btn-dark", style: "color: white;",
+                  data: { confirm: "Möchten Sie \'#{job.name}\' archivieren?" } %>
+              </div>
+            <% end %>
           </div>
         <% end %>
-      </div>
       <% end %>
     </div>
   <% end %>
