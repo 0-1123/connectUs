@@ -1,0 +1,29 @@
+<div class="container">
+  <form class="new_job" id="new_job" action="/jobs" accept-charset="UTF-8" method="post"><input name="utf8" type="hidden" value="✓"><input type="hidden" name="authenticity_token" value="U/2BgGcSWTvjIsZ4MyQm02gNwv8QCzPlOBorJKWkKIAfiYppDepoti/NPuLtsHKOUfsTAYOU82j+Oe7g892gyw==">
+    <div class="form-group">
+      <label for="job_Berufsbezeichnung">Berufsbezeichnung</label>
+      <input class="form-control" type="text" name="job[name]" id="job_name">
+    </div>
+
+    <div class="form-group">
+      <label for="job_Addresse">Addresse</label>
+      <input class="form-control" type="text" name="job[address]" id="job_address">
+    </div>
+
+    <div class="form-group">
+      <label for="job_Beschreibung">Beschreibung</label>
+      <textarea class="form-control" type="text" name="job[description]" id="job_description"></textarea>
+    </div>
+
+    <div class="form-group">
+      <label for="job_Anheuerung">Wir haben freie Stellen</label>
+      <select class="form-control" type="text" name="job[hiring]" id="job_hiring">
+        <option>Ja</option>
+        <option>Nein</option>
+        <option>Keine Angabe</option>
+      </select>
+    </div>
+
+    <input type="submit" name="commit" value="Anzeige erstellen" class="btn btn-info" data-disable-with="Create Job">
+</form>
+</div>

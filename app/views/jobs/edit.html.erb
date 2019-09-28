@@ -1,0 +1,30 @@
+<div class="container">
+  <form class="edit_job" id="edit_job_<%= @job.id %>" action="/beruf/<%= @job.id %>" accept-charset="UTF-8" method="post"><input name="utf8" type="hidden" value="✓"><input type="hidden" name="_method" value="patch"><input type="hidden" name="authenticity_token" value="OoKt51STfKpamqsgRbasd+oR+2JoSxDdzKT8xKg4GcB29qYOPmtNJ5Z1U7qbIvgq0+cqnPvU0FAKhzkA/kGRiw==">
+    <div class="form-group">
+      <label for="job_name">Berufsbezeichnung</label>
+      <input class="form-control" type="text" value="<%= @job.name %>" name="job[name]" id="job_name">
+    </div>
+
+    <div class="form-group">
+      <label for="job_address">Addresse</label>
+      <input class="form-control" type="text" value="<%= @job.address %>" name="job[address]" id="job_address">
+    </div>
+
+    <div class="form-group">
+      <label for="job_description">Beschreibung</label>
+      <input class="form-control" type="text" value="<%= @job.description %>" name="job[description]" id="job_description">
+    </div>
+
+    <div class="form-group">
+      <label for="job_hiring">Wir haben freie Stellen:</label>
+      <select class="form-control" type="text" name="job[hiring]" value="<%= @job.hiring %>" id="job_hiring">
+        <option>Ja</option>
+        <option>Nein</option>
+        <option>Keine Angabe</option>
+      </select>
+    </div>
+
+    <input type="submit" name="commit" value="Aktualisiern" class="btn btn-info" data-disable-with="Update Job">
+  </form>
+</div>
+

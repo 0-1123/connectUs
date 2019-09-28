@@ -4,5 +4,11 @@ Rails.application.routes.draw do
   get 'berufe', to: 'jobs#index', as: :jobs_index
   get 'beruf/:id', to: 'jobs#show', as: :job
   get 'firma/:id', to: 'jobs#company_show', as: :company
-  # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
+  get    "jobs/new",      to: "jobs#new"
+  post   "jobs",          to: "jobs#create"
+  get    "jobs/:id/edit", to: "jobs#edit", as: :edit_job
+  patch  "beruf/:id",      to: "jobs#update", as: :beruf
+  delete "jobs/:id",      to: "jobs#destroy"
+
+  get 'anzeigen', to: 'jobs#anzeigen_show', as: :anzeigen
 end

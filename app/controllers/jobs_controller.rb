@@ -17,22 +17,52 @@ class JobsController < ApplicationController
     @job = Job.find(params[:id])
   end
 
+  def anzeigen_show
+    @jobs = Job.where(user_id: current_user.id)
+  end
+
   def company_show
     @company = User.find(params[:id])
   end
 
   def new
+    if current_user.role == "company"
+      @job = Job.new
+    else
+      redirect_to jobs_index_path
+    end
   end
 
   def create
+    @job = Job.new(job_params)
+    @job.user_id = current_user.id
+    @job.save!
+
+    # no need for app/views/restaurants/create.html.erb
+    redirect_to job_path(@job)
   end
 
   def edit
+    if current_user.id = Job.find(params[:id]).user_id
+      @job = Job.find(params[:id])
+    else
+      redirect_to job_path(params[:id])
+    end
   end
 
   def update
+    @job = Job.find(params[:id])
+    @job.update(job_params)
+    redirect_to job_path(@job)
   end
 
+
   def destroy
+  end
+
+  private
+
+  def job_params
+    params.require(:job).permit(:name, :address, :description, :hiring)
   end
 end

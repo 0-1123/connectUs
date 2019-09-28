@@ -1,0 +1,19 @@
+<div class="container mt-5">
+  <h1 class="mb-5">Meine Anzeigen</h1>
+  <% unless @jobs.nil? %>
+    <div class="row jobs_index">
+      <% @jobs.each do |job| %>
+      <div class="col-sm-4">
+        <%= link_to(job_path(job.id)) do %>
+          <div class="jobcard">
+            <h5><%= job.name %></h5>
+            <p><%= User.find(job.user_id).name %> <br>
+            <%= job.address %></p>
+            <%= link_to "bearbeiten", edit_job_path(job.id), class: "btn btn-info" %>
+          </div>
+        <% end %>
+      </div>
+      <% end %>
+    </div>
+  <% end %>
+</div>
